@@ -8,9 +8,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import {USER_AVATAR} from '../utils/constants'
 
 function SignIn() {
+  const dispatch = useDispatch();
   const [signInToggle, setSignInToggle] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
   const changeRegistrationState = () => {
@@ -38,9 +41,26 @@ function SignIn() {
                 inputPassword.current.value
             ).then((userCredential) => {
               // Signed in
-              console.log("Signed Up!!");
-              const user = userCredential.user;
-              console.log(user);
+                console.log("Signed Up!!");
+                const user = userCredential.user;
+                console.log(user);
+                updateProfile(user, {
+                  displayName: inputName.current.value,
+                  photoURL: USER_AVATAR,
+                }).then(() => {
+                    const { uid, email, displayName, photoURL } =
+                                      auth.currentUser;
+                    dispatch(
+                      addUser({
+                          uid: uid,
+                          email: email,
+                          displayName: displayName,
+                          photoURL: photoURL,
+                      })
+                  );
+      
+                })
+
             }).catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
