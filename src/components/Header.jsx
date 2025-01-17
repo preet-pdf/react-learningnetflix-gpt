@@ -1,5 +1,5 @@
 import React from 'react'
-import {useCurrentUserState} from '../utils/useCurrentUserState'
+import {useCurrentUserState} from '../hooks/useCurrentUserState'
 import { removeUser } from "../utils/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";

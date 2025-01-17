@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from "react-redux";
-import MovieList from '../components/MovieList'
+import MovieList from '../NetflixScreen/MovieComponent/MovieList'
 
 const ChildContainer = () => {
   const movies = useSelector((store) => store.movies);

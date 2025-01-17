@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import BackgroundVideo from '../utils/BackugroundVideo'
-import VideoTitle from '../utils/VideoTitle'
+import BackgroundVideo from '../NetflixScreen/MovieComponent/BackugroundVideo'
+import VideoTitle from '../NetflixScreen/MovieComponent/VideoTitle'
 
 const MainContainer = () => {
   const nowPlaying = useSelector((store) => store.movies.nowPlayingMovies)
