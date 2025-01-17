@@ -2,6 +2,8 @@ import React from 'react'
 import MovieCard from './MovieCard'
 
 const MovieList = ({title, data}) => {
+  if (data && (data.length == 0)) return null;
+  console.log(data)
   return (
     <div className='px-6'>
       <h1 className='text-lg md:text-3xl py-4 text-white'>

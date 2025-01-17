@@ -12,3 +12,13 @@ export const API_CONSTANTS = {
 }
 
 export const IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w780";
+
+export const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY
+
+export const SUPPORTED_LANGUAGES = [
+    { identifier: "en", name: "English" },
+    { identifier: "hindi", name: "Hindi" },
+    { identifier: "spanish", name: "Spanish" },
+];
+
+export const GPT_PROMPT = "just pass the name dont be sorry only names as i told you List the top 5 Netflix movies in a comma-separated format (example: movie1,movie2,movie3) without any additional text. movie should be category of "
